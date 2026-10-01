@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AVEC, maqueta académica de comercio electrónico con chatbot simulado.">
+  <title>AVEC | Tecnología al alcance de todos</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido principal</a>
+<header class="cabecera">
+  <div class="contenedor barra">
+    <a class="marca" href="#inicio" aria-label="AVEC, ir al inicio"><strong>AVEC</strong><span>Tecnología al alcance de todos</span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuPrincipal"><span aria-hidden="true">☰</span><span class="sr-only">Abrir menú</span></button>
+    <nav id="menuPrincipal" class="navegacion" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a><a href="#productos">Productos</a><a href="#carrito">Mi carrito</a><a href="#pedidos">Mis pedidos</a><a href="#ayuda">Ayuda</a>
+    </nav>
+    <a class="carrito-cabecera" href="#carrito" aria-label="Ir al carrito"><span aria-hidden="true">🛒</span> Carrito <span id="contadorCarrito" class="contador">0</span></a>
+  </div>
+</header>
+<main id="contenido">
+  <section id="inicio" class="hero" aria-labelledby="tituloPrincipal">
+    <div class="contenedor hero-grid">
+      <div><p class="etiqueta">Comercio electrónico accesible</p><h1 id="tituloPrincipal">Encuentra la tecnología que necesitas</h1><p>Explora productos electrónicos, consulta disponibilidad y recibe orientación inmediata con AVEC Bot, una demostración interactiva con respuestas simuladas.</p><div class="acciones"><a class="btn primario" href="#productos">Ver productos</a><button class="btn secundario abrir-chat" type="button">Consultar con AVEC Bot</button></div></div>
+      <div class="ilustracion" role="img" aria-label="Composición de audífonos, teclado, reloj y parlante"><span>🎧</span><span>⌨️</span><span>⌚</span><span>🔊</span></div>
+    </div>
+  </section>
+
+  <section id="productos" class="seccion contenedor" aria-labelledby="tituloProductos">
+    <div class="encabezado-seccion"><div><p class="etiqueta">Catálogo</p><h2 id="tituloProductos">Productos electrónicos</h2></div><p id="resultadoProductos" aria-live="polite">Mostrando 8 resultados</p></div>
+    <form class="filtros" id="formFiltros" role="search">
+      <div class="campo"><label for="busqueda">Buscar productos</label><input id="busqueda" type="search" placeholder="Ejemplo: audífonos o cargador"></div>
+      <div class="campo"><label for="filtroCategoria">Filtrar por categoría</label><select id="filtroCategoria"><option value="todos">Todas las categorías</option></select></div>
+      <button class="btn secundario" id="limpiarFiltros" type="button">Limpiar filtros</button>
+    </form>
+    <div id="listaProductos" class="productos-grid"></div>
+  </section>
+
+  <section id="chatSeccion" class="seccion fondo" aria-labelledby="tituloChat">
+    <div class="contenedor chat-presentacion"><div><p class="etiqueta">Prototipo principal</p><h2 id="tituloChat">Chat de consulta de inventario</h2><p>Consulta productos, precios, disponibilidad, pedidos o solicita asesoría. Las respuestas son locales y simuladas, sin conexión a una IA externa.</p></div><button class="btn primario abrir-chat" type="button">Abrir AVEC Bot</button></div>
+  </section>
+
+  <section id="carrito" class="seccion contenedor" aria-labelledby="tituloCarrito">
+    <div class="encabezado-seccion"><div><p class="etiqueta">Compra</p><h2 id="tituloCarrito">Mi carrito</h2></div><a href="#productos">Volver a productos</a></div>
+    <div id="estadoCarrito" class="aviso" aria-live="polite"></div>
+    <div id="listaCarrito"></div>
+    <div class="resumen-carrito"><p>Total: <strong id="totalCarrito">$0</strong></p><div class="acciones"><button id="vaciarCarrito" class="btn peligro" type="button">Vaciar carrito</button><button id="continuarCompra" class="btn primario" type="button" disabled>Continuar compra</button></div></div>
+  </section>
+
+  <section id="pedidos" class="seccion fondo" aria-labelledby="tituloPedidos">
+    <div class="contenedor"><p class="etiqueta">Seguimiento</p><h2 id="tituloPedidos">Mis pedidos</h2>
+      <article class="pedido"><div class="pedido-cabecera"><div><h3>Pedido #AVEC-2026-1048</h3><p><strong>Estado actual:</strong> Preparando envío</p></div><span class="estado">📦 En preparación</span></div>
+        <dl class="datos-pedido"><div><dt>Producto</dt><dd>Audífonos Bluetooth AVEC Air</dd></div><div><dt>Cantidad</dt><dd>1</dd></div><div><dt>Total</dt><dd>$164.900</dd></div><div><dt>Dirección</dt><dd>Calle 10 # 20-30, Neiva</dd></div><div><dt>Entrega estimada</dt><dd>5 de octubre de 2026</dd></div><div><dt>Última actualización</dt><dd>1 de octubre de 2026, 2:30 p. m.</dd></div></dl>
+        <ol class="progreso" aria-label="Progreso del pedido"><li class="completo">✓ Pedido recibido</li><li class="completo">✓ Pago confirmado</li><li class="actual" aria-current="step">● Preparando envío</li><li>○ En camino</li><li>○ Entregado</li></ol>
+        <div class="acciones"><a class="btn secundario" href="#pedidos">Volver a mis pedidos</a><button class="btn secundario abrir-chat" type="button" data-mensaje="asesor para mi pedido">Hablar con un asesor</button></div><p class="sr-only" aria-live="polite" id="estadoPedido">El pedido está en preparación.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="ayuda" class="seccion contenedor" aria-labelledby="tituloAyuda"><p class="etiqueta">Soporte</p><h2 id="tituloAyuda">¿Necesitas ayuda?</h2><p>AVEC Bot puede orientarte durante la compra o derivar tu solicitud a un asesor humano simulado.</p><button class="btn secundario abrir-chat" type="button" data-mensaje="ayuda">Solicitar ayuda</button></section>
+</main>
+
+<aside id="chatbot" class="chatbot oculto" aria-labelledby="chatTitulo" aria-expanded="false">
+  <header class="chat-cabecera"><div><h2 id="chatTitulo">AVEC Bot</h2><p><span aria-hidden="true">●</span> Asistente disponible</p></div><div><button id="minimizarChat" type="button" aria-label="Minimizar chatbot">−</button><button id="cerrarChat" type="button" aria-label="Cerrar chatbot">×</button></div></header>
+  <div id="chatCuerpo"><div id="mensajesChat" class="mensajes" role="log" aria-live="polite" aria-relevant="additions"></div>
+    <div class="chips" aria-label="Consultas rápidas"><button type="button" data-consulta="ver productos">Ver productos</button><button type="button" data-consulta="audífonos">Consultar audífonos</button><button type="button" data-consulta="pedido">Estado de pedido</button><button type="button" data-consulta="asesor">Hablar con un asesor</button></div>
+    <form id="formChat" class="form-chat"><label for="entradaChat">Escribe tu consulta</label><div><input id="entradaChat" type="text" autocomplete="off" required><button class="btn primario" type="submit">Enviar</button></div></form>
+  </div>
+</aside>
+
+<div id="modalCompra" class="modal oculto" role="dialog" aria-modal="true" aria-labelledby="modalTitulo" aria-describedby="modalDesc" tabindex="-1">
+  <div class="modal-contenido"><button class="cerrar-modal" type="button" aria-label="Cerrar confirmación">×</button><p class="etiqueta">Paso 2 de 3</p><h2 id="modalTitulo">Confirmación de compra</h2><p id="modalDesc">Revisa los productos y valores antes de continuar.</p><div id="resumenCompra"></div><div class="acciones"><button id="volverModal" class="btn secundario" type="button">Volver</button><button id="cancelarCompra" class="btn peligro" type="button">Cancelar compra</button><button id="confirmarCompra" class="btn primario" type="button">Confirmar y continuar</button></div></div>
+</div>
+
+<div id="modalEnvio" class="modal oculto" role="dialog" aria-modal="true" aria-labelledby="envioTitulo" tabindex="-1">
+  <div class="modal-contenido modal-grande"><button class="cerrar-modal" type="button" aria-label="Cerrar formulario de envío">×</button><p class="etiqueta">Paso 3 de 3</p><h2 id="envioTitulo">Datos de envío</h2>
+    <form id="formEnvio" novalidate>
+      <div class="form-grid">
+        <div class="campo"><label for="nombre">Nombre completo</label><input id="nombre" name="nombre" autocomplete="name" required aria-describedby="ayudaNombre errorNombre"><small id="ayudaNombre">Escribe nombres y apellidos.</small><span class="error" id="errorNombre"></span></div>
+        <div class="campo"><label for="correo">Correo electrónico</label><input id="correo" name="correo" type="email" autocomplete="email" required aria-describedby="ayudaCorreo errorCorreo"><small id="ayudaCorreo">Ejemplo: nombre@correo.com</small><span class="error" id="errorCorreo"></span></div>
+        <div class="campo"><label for="telefono">Teléfono</label><input id="telefono" name="telefono" inputmode="numeric" maxlength="10" autocomplete="tel" required aria-describedby="ayudaTelefono errorTelefono"><small id="ayudaTelefono">10 números, por ejemplo: 3001234567.</small><span class="error" id="errorTelefono"></span></div>
+        <div class="campo"><label for="ciudad">Ciudad</label><input id="ciudad" name="ciudad" autocomplete="address-level2" required aria-describedby="errorCiudad"><span class="error" id="errorCiudad"></span></div>
+        <div class="campo campo-ancho"><label for="direccion">Dirección</label><input id="direccion" name="direccion" autocomplete="street-address" required aria-describedby="errorDireccion"><span class="error" id="errorDireccion"></span></div>
+        <div class="campo campo-ancho"><label for="indicaciones">Indicaciones adicionales</label><textarea id="indicaciones" name="indicaciones" rows="3" aria-describedby="ayudaIndicaciones"></textarea><small id="ayudaIndicaciones">Opcional. Incluye referencias útiles para la entrega.</small></div>
+      </div>
+      <fieldset><legend>Resultado de pago para la demostración</legend><label><input type="radio" name="resultadoPago" value="aprobado" checked> Simular pago aprobado</label><label><input type="radio" name="resultadoPago" value="rechazado"> Simular pago rechazado</label></fieldset>
+      <div class="acciones"><button class="btn secundario" id="volverConfirmacion" type="button">Volver</button><button class="btn primario" type="submit">Simular pago</button></div>
+    </form>
+  </div>
+</div>
+
+<div id="modalResultado" class="modal oculto" role="dialog" aria-modal="true" aria-labelledby="resultadoTitulo" tabindex="-1"><div class="modal-contenido"><button class="cerrar-modal" type="button" aria-label="Cerrar resultado">×</button><div id="contenidoResultado" aria-live="polite"></div></div></div>
+<div id="anuncios" class="sr-only" aria-live="polite"></div>
+<footer><div class="contenedor footer-grid"><div><strong class="logo-footer">AVEC</strong><p>Tecnología al alcance de todos mediante una experiencia de compra clara y accesible.</p></div><div><h2>Enlaces rápidos</h2><a href="#productos">Productos</a><a href="#carrito">Carrito</a><a href="#pedidos">Pedidos</a></div><div><h2>Contacto ficticio</h2><p>soporte@avec-ejemplo.com<br>+57 300 000 0000<br>Neiva, Colombia</p></div></div><p class="legal">Maqueta académica con fines educativos · © <span id="anio"></span> AVEC</p></footer>
+</body></html>
